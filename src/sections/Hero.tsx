@@ -29,7 +29,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10 flex flex-col items-center justify-end text-center pt-40 pb-12 md:pb-24 min-h-[100dvh]">
+      <div className="container-custom relative z-10 flex flex-col items-center justify-end text-center pt-40 pb-20 md:pb-32 min-h-[100dvh]">
         
         {/* Subtle white glow behind text for readability */}
         <div 

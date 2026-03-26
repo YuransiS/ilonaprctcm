@@ -85,7 +85,7 @@ img {
 }
 
 .btn-primary {
-  @apply relative inline-block px-10 py-5 md:px-16 md:py-7 rounded-full text-xs md:text-lg tracking-[0.2em] uppercase font-bold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-2xl;
+  @apply relative inline-block px-10 py-6 md:px-16 md:py-7 rounded-full text-sm md:text-lg tracking-[0.2em] uppercase font-bold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-2xl;
   background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
   box-shadow: 0 20px 50px -15px rgba(196, 149, 106, 0.6);
 }
