@@ -129,8 +129,8 @@ export default function FAQ() {
 
   return (
     <section className="section-padding bg-white relative overflow-hidden" id="faq">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent" />
-      <div className="max-w-4xl mx-auto relative z-10 px-6">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={headingRef} className="text-center mb-16 md:mb-24">
           <span
             className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"

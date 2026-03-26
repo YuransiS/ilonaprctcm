@@ -52,7 +52,7 @@ export default function AfterBroadcast() {
       className="section-padding bg-soft-white/30 relative overflow-hidden"
       id="after-broadcast"
     >
-      <div className="max-w-4xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div ref={headingRef} className="text-center mb-16 md:mb-20">
           <span
             className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"

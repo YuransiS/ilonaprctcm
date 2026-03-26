@@ -20,14 +20,14 @@ export default function FinalCTA() {
       style={{ background: "var(--color-charcoal)" }}
     >
       <div
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-30 pointer-events-none"
         style={{
           background:
             "radial-gradient(ellipse at 50% 0%, var(--color-gold) 0%, transparent 60%)",
         }}
       />
 
-      <div ref={ref} className="relative z-10 max-w-5xl mx-auto text-center px-6 overflow-visible">
+      <div ref={ref} className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8 overflow-visible">
         <span
           className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-10"
           style={{ color: "var(--color-gold)", fontWeight: 600 }}

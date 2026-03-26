@@ -64,8 +64,8 @@ export default function Host() {
 
   return (
     <section ref={sectionRef} className="py-20 md:py-32 bg-soft-white/60 relative overflow-hidden" id="host">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(196,149,106,0.03),transparent_60%)]" />
-      <div className="max-w-6xl mx-auto px-4 md:px-8 relative z-10">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(196,149,106,0.03),transparent_60%)] pointer-events-none" />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div
             ref={imageContainerRef}

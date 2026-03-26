@@ -48,8 +48,8 @@ export default function PainPoints() {
 
   return (
     <section className="section-padding bg-soft-white/60 relative overflow-hidden" id="pain-points">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(196,149,106,0.05),transparent_50%)]" />
-      <div className="max-w-5xl mx-auto relative z-10 px-6 md:px-8">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(196,149,106,0.05),transparent_50%)] pointer-events-none" />
+      <div className="max-w-7xl mx-auto relative z-10 px-6 md:px-8">
         <div ref={sectionRef} className="text-center mb-12 md:mb-20">
           <span
             className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-2 md:mb-4"

@@ -152,7 +152,7 @@ export default function Hero() {
           sizes="100vw"
         />
         <div
-          className="absolute inset-0"
+          className="absolute inset-0 pointer-events-none"
           style={{
             background:
               "linear-gradient(to bottom, rgba(45,41,38,0.2) 0%, rgba(255,248,240,0.4) 30%, rgba(255,248,240,0.95) 70%, var(--color-cream) 100%)",
@@ -165,7 +165,7 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 w-full max-w-6xl mx-auto min-h-screen pt-32 pb-20 md:pt-40 md:pb-32">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto min-h-screen pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="w-full flex flex-col items-center justify-center">
           <motion.div
             initial="hidden"
@@ -186,7 +186,7 @@ export default function Hero() {
               fontFamily: "var(--font-serif)",
               fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
               fontWeight: 400,
-              lineHeight: 1,
+              lineHeight: 1.1,
               letterSpacing: "-0.01em",
               color: "var(--color-charcoal)",
               textShadow: "0 10px 30px rgba(0,0,0,0.03)",

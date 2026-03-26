@@ -52,7 +52,7 @@ export default function WhatToExpect() {
       className="section-padding bg-cream relative overflow-hidden"
       id="what-to-expect"
     >
-      <div className="max-w-4xl mx-auto px-6 md:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
         <div ref={headingRef} className="text-center mb-16 md:mb-20">
           <span
             className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
@@ -73,41 +73,41 @@ export default function WhatToExpect() {
           </h2>
         </div>
 
-        <div ref={itemsRef} className="space-y-8">
+        <div ref={itemsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
           {topics.map((topic, i) => (
             <ShineCard
               key={i}
-              className="group rounded-[2rem] md:rounded-[2.5rem] p-6 pt-10 md:p-12 flex flex-col md:flex-row gap-6 md:gap-10 items-start md:items-center transition-all duration-700 hover:scale-[1.02] relative mt-8 md:mt-0"
+              className="group rounded-3xl p-8 md:p-10 flex flex-col gap-6 transition-all duration-700 hover:scale-[1.02] relative"
               style={{
-                background: "rgba(255,255,255,0.8)",
+                background: "rgba(255,255,255,0.85)",
                 backdropFilter: "blur(30px)",
                 border: "1px solid rgba(196,149,106,0.1)",
                 boxShadow: "0 20px 60px -20px rgba(45,41,38,0.05)",
               }}
             >
               <div 
-                className="flex-shrink-0 w-16 h-16 md:w-24 md:h-24 rounded-2xl md:rounded-3xl flex items-center justify-center transition-all duration-700 group-hover:rotate-12 group-hover:scale-110 shadow-lg absolute md:relative -top-8 left-6 md:top-0 md:left-0"
+                className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-700 group-hover:rotate-12 group-hover:scale-110 shadow-lg"
                 style={{ 
                   background: "linear-gradient(135deg, var(--color-powder) 0%, var(--color-blush) 100%)", 
                   color: "var(--color-gold-dark)",
                 }}
               >
                 <div className="absolute inset-0 bg-[rgba(255,255,255,0.4)] rounded-[inherit] blur-md group-hover:blur-xl transition-all" />
-                <div className="relative z-10 scale-75 md:scale-100">{topic.icon}</div>
+                <div className="relative z-10 scale-90">{topic.icon}</div>
               </div>
-              <div className="flex-1 w-full pt-4 md:pt-0">
-                <div className="flex items-center gap-3 md:gap-4 mb-3 md:mb-4">
-                  <span className="text-[10px] md:text-sm font-serif opacity-40 tracking-widest uppercase">Крок 0{i+1}</span>
+              <div className="flex-1 w-full">
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="text-[10px] font-serif opacity-40 tracking-widest uppercase">Крок 0{i+1}</span>
                   <div className="h-px flex-1 bg-gold/10" />
                 </div>
                 <h3
-                  className="text-xl md:text-3xl mb-2 md:mb-4 font-normal font-serif"
-                  style={{ color: "var(--color-charcoal)", letterSpacing: "-0.01em" }}
+                  className="text-xl md:text-2xl mb-3 font-normal font-serif min-h-[1.5em]"
+                  style={{ color: "var(--color-charcoal)", letterSpacing: "-0.01em", lineHeight: 1.2 }}
                 >
                   {topic.title}
                 </h3>
                 <p
-                  className="text-sm md:text-xl leading-relaxed opacity-70"
+                  className="text-sm md:text-base leading-relaxed opacity-70"
                   style={{
                     color: "var(--color-charcoal-light)",
                     fontWeight: 300,

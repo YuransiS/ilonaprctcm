@@ -53,6 +53,7 @@ function SlotDigit({ value, label }: { value: number; label: string }) {
 
 
 export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
+  const [isMounted, setIsMounted] = useState(false);
   const calcTimeLeft = useCallback((): TimeLeft => {
     const diff = targetDate.getTime() - Date.now();
     if (diff <= 0) return { days: 0, hours: 0, minutes: 0, seconds: 0 };
@@ -71,10 +72,8 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
     seconds: 0,
   });
 
-  const [isClient, setIsClient] = useState(false);
-
   useEffect(() => {
-    setIsClient(true);
+    setIsMounted(true);
     setTimeLeft(calcTimeLeft());
     const timer = setInterval(() => {
       setTimeLeft(calcTimeLeft());
@@ -82,7 +81,7 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
     return () => clearInterval(timer);
   }, [calcTimeLeft]);
 
-  if (!isClient) {
+  if (!isMounted) {
     return (
       <div className="flex items-center gap-2 md:gap-5 w-full max-w-[500px] mx-auto opacity-0 translate-y-4">
         {[1, 2, 3, 4].map(i => (
@@ -93,29 +92,37 @@ export default function CountdownTimer({ targetDate }: CountdownTimerProps) {
   }
 
   return (
-    <div className="flex items-center justify-between gap-1 md:gap-6 w-full max-w-[550px] mx-auto overflow-visible px-1 md:px-2">
-      <SlotDigit value={timeLeft.days} label="Днів" />
+    <div className="flex items-center justify-between gap-1 md:gap-6 w-full max-w-[600px] mx-auto overflow-visible px-1 md:px-2">
+      <div className="min-w-[70px] md:min-w-[120px] flex-1">
+        <SlotDigit value={timeLeft.days} label="Днів" />
+      </div>
       <span
         className="hidden md:block text-2xl md:text-4xl font-serif mb-auto mt-6 opacity-30 animate-pulse"
         style={{ color: "var(--color-gold-dark)" }}
       >
         ·
       </span>
-      <SlotDigit value={timeLeft.hours} label="Годин" />
+      <div className="min-w-[70px] md:min-w-[120px] flex-1">
+        <SlotDigit value={timeLeft.hours} label="Годин" />
+      </div>
       <span
         className="hidden md:block text-2xl md:text-4xl font-serif mb-auto mt-6 opacity-30 animate-pulse"
         style={{ color: "var(--color-gold-dark)" }}
       >
         ·
       </span>
-      <SlotDigit value={timeLeft.minutes} label="Хвилин" />
+      <div className="min-w-[70px] md:min-w-[120px] flex-1">
+        <SlotDigit value={timeLeft.minutes} label="Хвилин" />
+      </div>
       <span
         className="hidden md:block text-2xl md:text-4xl font-serif mb-auto mt-6 opacity-30 animate-pulse"
         style={{ color: "var(--color-gold-dark)" }}
       >
         ·
       </span>
-      <SlotDigit value={timeLeft.seconds} label="Секунд" />
+      <div className="min-w-[70px] md:min-w-[120px] flex-1">
+        <SlotDigit value={timeLeft.seconds} label="Секунд" />
+      </div>
     </div>
   );
 }
