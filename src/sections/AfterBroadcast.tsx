@@ -34,6 +34,7 @@ const results = [
 
 
 export default function AfterBroadcast() {
+  /*
   const headingRef = useScrollReveal<HTMLDivElement>({
     y: 30,
     duration: 0.6,
@@ -46,6 +47,7 @@ export default function AfterBroadcast() {
     children: true,
     start: "top 80%",
   });
+  */
 
   return (
     <section
@@ -53,7 +55,7 @@ export default function AfterBroadcast() {
       id="after-broadcast"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div ref={headingRef} className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-16 md:mb-20">
           <span
             className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
             style={{ color: "var(--color-gold)", fontWeight: 500 }}
@@ -73,7 +75,7 @@ export default function AfterBroadcast() {
           </h2>
         </div>
 
-        <div ref={itemsRef} className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
           {results.map((result, i) => (
             <div
               key={i}

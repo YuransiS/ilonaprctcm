@@ -33,6 +33,7 @@ const painPoints = [
 ];
 
 export default function PainPoints() {
+  /*
   const sectionRef = useScrollReveal<HTMLDivElement>({
     y: 30,
     duration: 0.8,
@@ -45,22 +46,23 @@ export default function PainPoints() {
     children: true,
     start: "top 85%",
   });
+  */
 
   return (
     <section className="section-padding bg-soft-white/60 relative overflow-hidden" id="pain-points">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(196,149,106,0.05),transparent_50%)] pointer-events-none" />
       <div className="max-w-7xl mx-auto relative z-10 px-6 md:px-8">
-        <div ref={sectionRef} className="text-center mb-12 md:mb-20">
+        <div className="text-center mb-16 md:mb-24">
           <span
-            className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-2 md:mb-4"
+            className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-4"
             style={{ color: "var(--color-gold)", fontWeight: 500 }}
           >
             Знайоме?
           </span>
           <h2
-            className="mb-6 font-serif"
+            className="mb-8 font-serif"
             style={{
-              fontSize: "clamp(1.8rem, 8vw, 3.5rem)",
+              fontSize: "clamp(2rem, 8vw, 4rem)",
               fontWeight: 400,
               lineHeight: 1.1,
               color: "var(--color-charcoal)",
@@ -69,9 +71,9 @@ export default function PainPoints() {
             ВПІЗНАЄШ СЕБЕ?
           </h2>
           <p
-            className="max-w-md mx-auto text-sm md:text-lg opacity-70"
+            className="max-w-2xl mx-auto text-base md:text-xl opacity-80"
             style={{
-              color: "var(--color-warm-gray)",
+              color: "var(--color-charcoal-light)",
               fontWeight: 300,
               lineHeight: 1.6,
             }}
@@ -80,28 +82,28 @@ export default function PainPoints() {
           </p>
         </div>
 
-        <div ref={cardsRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 lg:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
           {painPoints.map((point, i) => (
             <ShineCard
               key={i}
-              className="group rounded-[2rem] p-8 md:p-10 transition-all duration-500 hover:-translate-y-2"
+              className="group rounded-3xl p-10 md:p-12 transition-all duration-500 opacity-100 translate-y-0"
               style={{
-                background: "rgba(255,255,255,0.7)",
+                background: "rgba(255,255,255,0.85)",
                 backdropFilter: "blur(20px)",
                 border: "1px solid rgba(196,149,106,0.1)",
                 boxShadow: "0 10px 40px -15px rgba(45,41,38,0.05)",
               }}
             >
               <div 
-                className="mb-6 p-3 rounded-2xl inline-block transition-colors duration-500 group-hover:bg-gold/10"
+                className="mb-8 p-4 rounded-2xl inline-block bg-gold/5 transition-colors duration-500"
                 style={{ color: "var(--color-gold)" }}
               >
                 {point.icon}
               </div>
               <p
-                className="text-base md:text-lg leading-relaxed"
+                className="text-base md:text-xl leading-relaxed"
                 style={{
-                  color: "var(--color-charcoal-light)",
+                  color: "var(--color-charcoal)",
                   fontWeight: 400,
                 }}
               >
@@ -112,7 +114,6 @@ export default function PainPoints() {
         </div>
       </div>
     </section>
-
   );
 }
 

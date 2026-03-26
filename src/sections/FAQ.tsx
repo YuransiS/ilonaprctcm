@@ -116,6 +116,7 @@ function FAQItem({
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
+  /*
   const headingRef = useScrollReveal<HTMLDivElement>({
     y: 30,
     duration: 0.6,
@@ -126,12 +127,13 @@ export default function FAQ() {
     duration: 0.7,
     start: "top 80%",
   });
+  */
 
   return (
     <section className="section-padding bg-white relative overflow-hidden" id="faq">
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div ref={headingRef} className="text-center mb-16 md:mb-24">
+        <div className="text-center mb-16 md:mb-24">
           <span
             className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
             style={{ color: "var(--color-gold)", fontWeight: 500 }}
@@ -152,7 +154,6 @@ export default function FAQ() {
         </div>
 
         <div
-          ref={listRef}
           className="border-t"
           style={{ borderColor: "rgba(196,149,106,0.1)" }}
         >

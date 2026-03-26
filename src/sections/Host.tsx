@@ -19,6 +19,7 @@ export default function Host() {
     start: "top 75%",
   });
 
+  /*
   useEffect(() => {
     const imgContainer = imageContainerRef.current;
     if (!imgContainer) return;
@@ -61,22 +62,23 @@ export default function Host() {
 
     return () => trigger.kill();
   }, []);
+  */
 
   return (
-    <section ref={sectionRef} className="py-20 md:py-32 bg-soft-white/60 relative overflow-hidden" id="host">
+    <section ref={sectionRef} className="py-20 md:py-40 bg-soft-white/60 relative overflow-hidden" id="host">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_100%_100%,rgba(196,149,106,0.03),transparent_60%)] pointer-events-none" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           <div
             ref={imageContainerRef}
-            className="relative w-full rounded-3xl overflow-hidden will-change-clip shadow-2xl mx-auto"
-            style={{ paddingTop: '100%', maxWidth: '400px' }}
+            className="relative w-full rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl mx-auto"
+            style={{ paddingTop: '125%', maxWidth: '500px' }}
           >
             <Image
               src="/host.png"
               alt="Ведуча ефіру"
               fill
-              className="object-cover object-[center_30%]"
+              className="object-cover object-[center_20%]"
               quality={90}
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
@@ -84,14 +86,14 @@ export default function Host() {
               className="absolute inset-0"
               style={{
                 background:
-                  "linear-gradient(to top, rgba(45,41,38,0.2) 0%, transparent 60%)",
+                  "linear-gradient(to top, rgba(45,41,38,0.3) 0%, transparent 50%)",
               }}
             />
           </div>
 
-          <div ref={textRef} className="flex flex-col justify-center text-center lg:text-left">
+          <div className="flex flex-col justify-center text-center lg:text-left">
             <span
-              className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-4"
+              className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-6"
               style={{ color: "var(--color-gold)", fontWeight: 500 }}
             >
               Ведуча ефіру
@@ -99,7 +101,7 @@ export default function Host() {
             <h2
               className="mb-8 font-serif"
               style={{
-                fontSize: "clamp(1.8rem, 8vw, 3.5rem)",
+                fontSize: "clamp(2rem, 8vw, 4rem)",
                 fontWeight: 400,
                 lineHeight: 1.1,
                 color: "var(--color-charcoal)",
@@ -108,9 +110,9 @@ export default function Host() {
             >
               ХТО ПРОВОДИТЬ ЕФІР
             </h2>
-            <div className="space-y-6 mb-10 max-w-xl mx-auto lg:mx-0">
+            <div className="space-y-8 mb-12 max-w-xl mx-auto lg:mx-0">
               <p
-                className="text-sm md:text-lg leading-relaxed opacity-80"
+                className="text-base md:text-xl leading-relaxed opacity-90"
                 style={{
                   color: "var(--color-charcoal-light)",
                   fontWeight: 300,
@@ -120,7 +122,7 @@ export default function Host() {
                 Провела 500+ консультацій, допомогла сотням пар знайти спільну мову.
               </p>
               <p
-                className="text-sm md:text-lg leading-relaxed opacity-80"
+                className="text-base md:text-xl leading-relaxed opacity-90"
                 style={{
                   color: "var(--color-charcoal-light)",
                   fontWeight: 300,
@@ -133,9 +135,10 @@ export default function Host() {
 
             <p
               ref={quoteRef}
-              className="gradient-wipe-text text-lg md:text-2xl italic leading-relaxed font-serif pt-8 border-t border-gold/20"
+              className="text-xl md:text-3xl italic leading-relaxed font-serif pt-10 border-t border-gold/20"
               style={{
                 fontWeight: 400,
+                color: "var(--color-charcoal)",
               }}
             >
               &ldquo;Кожна жінка заслуговує на стосунки, де її чують, цінують і

@@ -1,17 +1,19 @@
 "use client";
 
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+// import { useScrollReveal } from "@/hooks/useScrollReveal";
 import MagneticButton from "@/components/MagneticButton";
 import CountdownTimer from "@/components/CountdownTimer";
 
 const TARGET_DATE = new Date("2026-04-15T19:00:00+02:00");
 
 export default function FinalCTA() {
+  /*
   const ref = useScrollReveal<HTMLDivElement>({
     y: 40,
     duration: 0.8,
     start: "top 80%",
   });
+  */
 
   return (
     <section
@@ -27,7 +29,7 @@ export default function FinalCTA() {
         }}
       />
 
-      <div ref={ref} className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8 overflow-visible">
+      <div className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8 overflow-visible">
         <span
           className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-10"
           style={{ color: "var(--color-gold)", fontWeight: 600 }}

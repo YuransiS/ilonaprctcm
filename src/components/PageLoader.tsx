@@ -4,10 +4,12 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function PageLoader() {
+  return null;
   const loaderRef = useRef<HTMLDivElement>(null);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    /*
     const loader = loaderRef.current;
     if (!loader) return;
 
@@ -31,6 +33,7 @@ export default function PageLoader() {
       tl.kill();
       document.body.style.overflow = "";
     };
+    */
   }, []);
 
   if (done) return null;

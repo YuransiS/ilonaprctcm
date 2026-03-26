@@ -34,6 +34,7 @@ const topics = [
 ];
 
 export default function WhatToExpect() {
+  /*
   const headingRef = useScrollReveal<HTMLDivElement>({
     y: 30,
     duration: 0.8,
@@ -46,6 +47,7 @@ export default function WhatToExpect() {
     children: true,
     start: "top 85%",
   });
+  */
 
   return (
     <section
@@ -53,17 +55,17 @@ export default function WhatToExpect() {
       id="what-to-expect"
     >
       <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div ref={headingRef} className="text-center mb-16 md:mb-20">
+        <div className="text-center mb-16 md:mb-24">
           <span
-            className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
+            className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-4"
             style={{ color: "var(--color-gold)", fontWeight: 500 }}
           >
             Програма ефіру
           </span>
           <h2
-            className="mb-6 font-serif"
+            className="mb-8 font-serif"
             style={{
-              fontSize: "clamp(1.8rem, 8vw, 3.5rem)",
+              fontSize: "clamp(2rem, 8vw, 4rem)",
               fontWeight: 400,
               lineHeight: 1.1,
               color: "var(--color-charcoal)",
@@ -73,41 +75,40 @@ export default function WhatToExpect() {
           </h2>
         </div>
 
-        <div ref={itemsRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {topics.map((topic, i) => (
             <ShineCard
               key={i}
-              className="group rounded-3xl p-8 md:p-10 flex flex-col gap-6 transition-all duration-700 hover:scale-[1.02] relative"
+              className="group rounded-3xl p-10 md:p-12 flex flex-col gap-8 transition-all duration-700 opacity-100 translate-y-0"
               style={{
-                background: "rgba(255,255,255,0.85)",
+                background: "rgba(255,255,255,0.9)",
                 backdropFilter: "blur(30px)",
                 border: "1px solid rgba(196,149,106,0.1)",
                 boxShadow: "0 20px 60px -20px rgba(45,41,38,0.05)",
               }}
             >
               <div 
-                className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-700 group-hover:rotate-12 group-hover:scale-110 shadow-lg"
+                className="flex-shrink-0 w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-700 shadow-lg"
                 style={{ 
                   background: "linear-gradient(135deg, var(--color-powder) 0%, var(--color-blush) 100%)", 
                   color: "var(--color-gold-dark)",
                 }}
               >
-                <div className="absolute inset-0 bg-[rgba(255,255,255,0.4)] rounded-[inherit] blur-md group-hover:blur-xl transition-all" />
-                <div className="relative z-10 scale-90">{topic.icon}</div>
+                <div className="relative z-10">{topic.icon}</div>
               </div>
               <div className="flex-1 w-full">
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-[10px] font-serif opacity-40 tracking-widest uppercase">Крок 0{i+1}</span>
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-[10px] md:text-xs font-serif opacity-40 tracking-widest uppercase">Крок 0{i+1}</span>
                   <div className="h-px flex-1 bg-gold/10" />
                 </div>
                 <h3
-                  className="text-xl md:text-2xl mb-3 font-normal font-serif min-h-[1.5em]"
+                  className="text-2xl md:text-3xl mb-4 font-normal font-serif min-h-[1.5em]"
                   style={{ color: "var(--color-charcoal)", letterSpacing: "-0.01em", lineHeight: 1.2 }}
                 >
                   {topic.title}
                 </h3>
                 <p
-                  className="text-sm md:text-base leading-relaxed opacity-70"
+                  className="text-base md:text-lg leading-relaxed opacity-80"
                   style={{
                     color: "var(--color-charcoal-light)",
                     fontWeight: 300,
@@ -121,7 +122,6 @@ export default function WhatToExpect() {
         </div>
       </div>
     </section>
-
   );
 }
 

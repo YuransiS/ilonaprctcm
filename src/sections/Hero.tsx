@@ -57,6 +57,7 @@ export default function Hero() {
   const imageRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
+  /*
   useEffect(() => {
     if (!imageRef.current) return;
 
@@ -130,17 +131,18 @@ export default function Hero() {
       window.removeEventListener("resize", resize);
     };
   }, []);
+  */
 
   return (
     <section
       ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden"
       id="hero"
     >
       <div
         ref={imageRef}
-        className="absolute inset-0 will-change-transform"
-        style={{ top: "-5%" }}
+        className="absolute inset-0"
+        style={{ top: "0" }}
       >
         <Image
           src="/hero.png"
@@ -160,31 +162,29 @@ export default function Hero() {
         />
         <canvas
           ref={canvasRef}
-          className="absolute inset-0 w-full h-full pointer-events-none"
+          className="absolute inset-0 w-full h-full pointer-events-none hidden"
           style={{ mixBlendMode: "overlay", opacity: 0.3 }}
         />
       </div>
 
-      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto min-h-screen pt-32 pb-20 md:pt-40 md:pb-32">
+      <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 w-full max-w-7xl mx-auto min-h-[100dvh] pt-32 pb-20 md:pt-40 md:pb-32">
         <div className="w-full flex flex-col items-center justify-center">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            className="mb-8 md:mb-10"
+          <div
+            className="mb-8 md:mb-10 opacity-100"
           >
-            <motion.span
+            <span
               className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase px-4 py-2 rounded-full bg-gold/10 backdrop-blur-sm border border-gold/10"
               style={{ color: "var(--color-gold-dark)", fontWeight: 600 }}
             >
               Безкоштовний онлайн ефір
-            </motion.span>
-          </motion.div>
+            </span>
+          </div>
 
           <h1
-            className="flex flex-wrap justify-center gap-x-3 md:gap-x-5 gap-y-2 md:gap-y-4 mb-8 md:mb-12 w-full max-w-4xl"
+            className="flex flex-wrap justify-center gap-x-3 md:gap-x-5 gap-y-2 md:gap-y-4 mb-8 md:mb-12 w-full max-w-5xl"
             style={{
               fontFamily: "var(--font-serif)",
-              fontSize: "clamp(2.5rem, 8vw, 5.5rem)",
+              fontSize: "clamp(2.5rem, 8vw, 6rem)",
               fontWeight: 400,
               lineHeight: 1.1,
               letterSpacing: "-0.01em",
@@ -193,76 +193,44 @@ export default function Hero() {
             }}
           >
             {headlineWords.map((word, i) => (
-              <span key={i} className="text-reveal-mask overflow-visible">
-                <motion.span
-                  variants={wordVariants}
-                  initial="hidden"
-                  animate="visible"
-                  custom={i}
-                  className="inline-block will-change-transform py-2"
-                >
-                  {word}
-                </motion.span>
+              <span key={i} className="py-2 opacity-100 translate-y-0">
+                {word}
               </span>
             ))}
           </h1>
 
-          <div className="flex flex-col items-center text-center gap-1 md:gap-2 mb-12 md:mb-16 max-w-2xl px-4">
-            <motion.p
-              variants={subWordVariants}
-              initial="hidden"
-              animate="visible"
-              custom={0}
-              className="text-lg md:text-2xl will-change-transform"
+          <div className="flex flex-col items-center text-center gap-1 md:gap-2 mb-12 md:mb-16 max-w-3xl px-4">
+            <p
+              className="text-lg md:text-3xl opacity-100 translate-y-0"
               style={{
                 color: "var(--color-charcoal)",
                 fontWeight: 300,
                 lineHeight: 1.4,
               }}
             >
-              Безкоштовний ефір про стосунки,
-            </motion.p>
-            <motion.p
-              variants={subWordVariants}
-              initial="hidden"
-              animate="visible"
-              custom={1}
-              className="text-lg md:text-2xl will-change-transform"
-              style={{
-                color: "var(--color-charcoal)",
-                fontWeight: 300,
-                lineHeight: 1.4,
-              }}
-            >
-              які змінять твоє життя
-            </motion.p>
+              Безкоштовний ефір про стосунки, які змінять твоє життя
+            </p>
           </div>
 
           <div className="w-full flex flex-col items-center gap-12 md:gap-24">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 2.4, duration: 1.2, ease: "easeOut" }}
-              className="w-full max-w-xl md:max-w-2xl"
+            <div
+              className="w-full max-w-3xl opacity-100 scale-100"
             >
               <CountdownTimer targetDate={TARGET_DATE} />
-            </motion.div>
+            </div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 3, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full flex justify-center pb-12"
+            <div
+              className="w-full flex justify-center pb-12 opacity-100 translate-y-0"
             >
               <MagneticButton
                 href="#"
                 className="group relative w-fit"
               >
                 <div
-                  className="absolute -inset-8 bg-gold/25 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-1000"
+                  className="absolute -inset-8 bg-gold/25 rounded-full blur-3xl opacity-100 group-hover:opacity-100 transition-opacity duration-1000"
                 />
                 <span
-                  className="relative inline-block px-10 py-5 md:px-20 md:py-8 rounded-full text-xs md:text-lg tracking-[0.2em] md:tracking-[0.25em] uppercase font-bold transition-all duration-500 hover:scale-105 active:scale-95 shadow-2xl"
+                  className="relative inline-block px-10 py-5 md:px-20 md:py-8 rounded-full text-xs md:text-xl tracking-[0.2em] md:tracking-[0.25em] uppercase font-bold shadow-2xl"
                   style={{
                     background: "linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%)",
                     color: "#fff",
@@ -272,7 +240,7 @@ export default function Hero() {
                   Забронювати місце
                 </span>
               </MagneticButton>
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

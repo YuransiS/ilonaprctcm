@@ -25,18 +25,12 @@ function SlotDigit({ value, label }: { value: number; label: string }) {
         <div className="flex relative z-10 font-serif leading-none" style={{ fontSize: "clamp(1.5rem, 5vw, 3.5rem)" }}>
           {digits.split("").map((digit, i) => (
             <div key={i} className="relative w-[0.6em] h-[1.2em] flex items-center justify-center overflow-hidden">
-              <AnimatePresence mode="popLayout" initial={false}>
-                <motion.span
+               <span
                   key={digit}
-                  initial={{ y: "100%", opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  exit={{ y: "-100%", opacity: 0 }}
-                  transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                   className="absolute"
                 >
                   {digit}
-                </motion.span>
-              </AnimatePresence>
+                </span>
             </div>
           ))}
         </div>

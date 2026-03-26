@@ -19,6 +19,7 @@ export default function AnimatedIcon({
 }: AnimatedIconProps) {
   const ref = useRef<HTMLDivElement>(null);
 
+  /*
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
@@ -55,6 +56,7 @@ export default function AnimatedIcon({
       trigger.kill();
     };
   }, [delay]);
+  */
 
   return (
     <div ref={ref} className={`svg-draw inline-flex ${className}`}>
