@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useScrollReveal } from "@/hooks/useScrollReveal";
+import { useState } from "react";
+import { Plus, Minus } from "lucide-react";
 
 const faqData = [
   {
@@ -31,84 +30,32 @@ const faqData = [
   },
 ];
 
-import { Plus, Minus } from "lucide-react";
-
-function FAQItem({
-  item,
-  isOpen,
-  onToggle,
-  index,
-}: {
-  item: (typeof faqData)[0];
-  isOpen: boolean;
-  onToggle: () => void;
-  index: number;
-}) {
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [height, setHeight] = useState(0);
-
-  useEffect(() => {
-    if (contentRef.current) {
-      setHeight(contentRef.current.scrollHeight);
-    }
-  }, [isOpen]);
-
+function FAQItem({ item, isOpen, onToggle }: { item: typeof faqData[0], isOpen: boolean, onToggle: () => void }) {
   return (
-    <div
-      className="border-b transition-colors duration-300"
-      style={{ borderColor: "rgba(196,149,106,0.1)" }}
-    >
-      <button
-        className="w-full flex items-center justify-between py-6 md:py-10 text-left group focus:outline-none"
+    <div className="border-b transition-colors duration-300" style={{ borderColor: "rgba(196,149,106,0.15)" }}>
+      <button 
+        className="w-full flex items-center justify-between py-10 md:py-14 text-left group focus:outline-none"
         onClick={onToggle}
         aria-expanded={isOpen}
       >
-        <span
-          className="text-lg md:text-xl pr-8 transition-colors duration-300"
-          style={{
-            color: isOpen
-              ? "var(--color-charcoal)"
-              : "var(--color-charcoal-light)",
-            fontWeight: isOpen ? 500 : 400,
-          }}
-        >
+        <span className="text-xl md:text-3xl pr-10 transition-colors duration-300 font-serif leading-snug text-charcoal" style={{ color: isOpen ? 'var(--color-gold)' : 'var(--color-charcoal)' }}>
           {item.q}
         </span>
-        <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center transition-transform duration-500" style={{ color: "var(--color-gold)", transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}>
-          {isOpen ? <Minus size={24} strokeWidth={1.5} /> : <Plus size={24} strokeWidth={1.5} />}
+        <span className="flex-shrink-0 w-10 h-10 flex items-center justify-center transition-transform duration-500 rounded-full bg-gold/5 group-hover:bg-gold/10" style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)', color: 'var(--color-gold)' }}>
+          {isOpen ? <Minus size={24} /> : <Plus size={24} />}
         </span>
       </button>
-
-      <motion.div
-        className="faq-content"
-        initial={false}
-        animate={{
-          height: isOpen ? height : 0,
-          opacity: isOpen ? 1 : 0,
-        }}
-        transition={{
-          height: {
-            duration: 0.4,
-            ease: [0.76, 0, 0.24, 1],
-          },
-          opacity: {
-            duration: 0.25,
-            delay: isOpen ? 0.1 : 0,
-          },
-        }}
+      
+      <div 
+        className="overflow-hidden transition-all duration-500 ease-in-out" 
+        style={{ maxHeight: isOpen ? '400px' : '0', opacity: isOpen ? 1 : 0 }}
       >
-        <div ref={contentRef} className="pb-6 md:pb-7">
-          <p
-            className="text-sm md:text-base leading-relaxed max-w-2xl"
-            style={{
-              color: "var(--color-warm-gray)",
-              fontWeight: 300,
-            }}
-          >
+        <div className="pb-10 md:pb-14 max-w-3xl">
+          <p className="text-lg md:text-xl font-light text-charcoal-light leading-relaxed">
             {item.a}
           </p>
         </div>
-      </motion.div>
+      </div>
     </div>
   );
 }
@@ -116,59 +63,33 @@ function FAQItem({
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  /*
-  const headingRef = useScrollReveal<HTMLDivElement>({
-    y: 30,
-    duration: 0.6,
-  });
-
-  const listRef = useScrollReveal<HTMLDivElement>({
-    y: 30,
-    duration: 0.7,
-    start: "top 80%",
-  });
-  */
-
   return (
-    <section className="section-padding bg-white relative overflow-hidden" id="faq">
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent pointer-events-none" />
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-16 md:mb-24">
-          <span
-            className="inline-block text-[10px] md:text-xs tracking-[0.4em] uppercase mb-4"
-            style={{ color: "var(--color-gold)", fontWeight: 500 }}
-          >
+    <section className="section-padding bg-soft-white relative" id="faq">
+      {/* Background Accent Gradients */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent pointer-events-none" />
+
+      <div className="container-custom relative z-10 max-w-5xl">
+        <header className="text-center mb-16 md:mb-24 flex flex-col items-center">
+          <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-6 text-gold font-medium">
             FAQ
           </span>
-          <h2
-            className="mb-6 font-serif"
-            style={{
-              fontSize: "clamp(1.8rem, 8vw, 3.5rem)",
-              fontWeight: 400,
-              lineHeight: 1.1,
-              color: "var(--color-charcoal)",
-            }}
-          >
+          <h2 className="heading-serif mb-8 text-charcoal" style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.1 }}>
             ЧАСТІ ЗАПИТАННЯ
           </h2>
-        </div>
+          <div className="w-24 h-px bg-gold/20 mb-8" />
+        </header>
 
-        <div
-          className="border-t"
-          style={{ borderColor: "rgba(196,149,106,0.1)" }}
-        >
+        <div className="space-y-4">
           {faqData.map((item, i) => (
-            <FAQItem
-              key={i}
-              item={item}
-              index={i}
-              isOpen={openIndex === i}
+            <FAQItem 
+              key={i} 
+              item={item} 
+              isOpen={openIndex === i} 
               onToggle={() => setOpenIndex(openIndex === i ? null : i)}
             />
           ))}
         </div>
       </div>
     </section>
-
   );
 }

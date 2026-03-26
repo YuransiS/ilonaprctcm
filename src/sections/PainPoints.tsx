@@ -1,119 +1,70 @@
 "use client";
 
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import ShineCard from "@/components/ShineCard";
-
-import { HeartOff, MessageSquareText, Zap, Moon, UserX, Repeat } from "lucide-react";
+import { CheckCircle } from "lucide-react";
 
 const painPoints = [
   {
-    icon: <HeartOff size={28} strokeWidth={1.5} />,
-    text: "Відчуваєш, що віддаєш більше, ніж отримуєш у стосунках",
+    icon: <CheckCircle className="w-8 h-8" />,
+    text: "Відчуваєш, що твій партнер тебе не чує і не розуміє твоїх потреб",
   },
   {
-    icon: <MessageSquareText size={28} strokeWidth={1.5} />,
-    text: "Постійно аналізуєте його повідомлення та поведінку",
+    icon: <CheckCircle className="w-8 h-8" />,
+    text: "Втомилася від постійних конфліктів через дрібниці, які не вирішуються",
   },
   {
-    icon: <Zap size={28} strokeWidth={1.5} />,
-    text: "Злишся, коли він не розуміє, чого ти хочеш",
+    icon: <CheckCircle className="w-8 h-8" />,
+    text: "Тобі не вистачає уваги, компліментів та вдячності від чоловіка",
   },
   {
-    icon: <Moon size={28} strokeWidth={1.5} />,
-    text: "Боїшся висловити свої справжні потреби та бажання",
+    icon: <CheckCircle className="w-8 h-8" />,
+    text: "Відчуваєш емоційне відсторонення і холод у стосунках останнім часом",
   },
   {
-    icon: <UserX size={28} strokeWidth={1.5} />,
-    text: "Відчуваєш себе самотньою, навіть коли ви разом",
+    icon: <CheckCircle className="w-8 h-8" />,
+    text: "Боїшся висловлювати свої бажання, щоб не спровокувати чергову сварку",
   },
   {
-    icon: <Repeat size={28} strokeWidth={1.5} />,
-    text: "Знову і знову потрапляєте в один і той самий сценарій",
+    icon: <CheckCircle className="w-8 h-8" />,
+    text: "Маєш відчуття, що ви просто сусіди, а була пристрасть і близькість",
   },
 ];
 
 export default function PainPoints() {
-  /*
-  const sectionRef = useScrollReveal<HTMLDivElement>({
-    y: 30,
-    duration: 0.8,
-  });
-
-  const cardsRef = useScrollReveal<HTMLDivElement>({
-    y: 40,
-    stagger: 0.1,
-    duration: 0.8,
-    children: true,
-    start: "top 85%",
-  });
-  */
-
   return (
-    <section className="section-padding bg-soft-white/60 relative overflow-hidden" id="pain-points">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(196,149,106,0.05),transparent_50%)] pointer-events-none" />
-      <div className="max-w-7xl mx-auto relative z-10 px-6 md:px-8">
-        <div className="text-center mb-16 md:mb-24">
-          <span
-            className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-4"
-            style={{ color: "var(--color-gold)", fontWeight: 500 }}
-          >
+    <section className="section-padding bg-soft-white relative" id="pain-points">
+      {/* Subtle Background Accent */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(196,149,106,0.05),transparent_60%)] pointer-events-none" />
+
+      <div className="container-custom relative z-10">
+        <header className="text-center mb-16 md:mb-24 flex flex-col items-center">
+          <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-6 text-gold font-medium">
             Знайоме?
           </span>
-          <h2
-            className="mb-8 font-serif"
-            style={{
-              fontSize: "clamp(2rem, 8vw, 4rem)",
-              fontWeight: 400,
-              lineHeight: 1.1,
-              color: "var(--color-charcoal)",
-            }}
-          >
+          <h2 className="heading-serif mb-8 text-charcoal" style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.1 }}>
             ВПІЗНАЄШ СЕБЕ?
           </h2>
-          <p
-            className="max-w-2xl mx-auto text-base md:text-xl opacity-80"
-            style={{
-              color: "var(--color-charcoal-light)",
-              fontWeight: 300,
-              lineHeight: 1.6,
-            }}
-          >
-            Якщо хоча б один пункт — про тебе, цей ефір створений для тебе
+          <div className="w-24 h-px bg-gold/30 mb-8" />
+          <p className="max-w-2xl text-lg md:text-2xl font-light text-charcoal-light leading-relaxed">
+            Якщо хоча б один пункт — про тебе, цей ефір створений саме для тебе
           </p>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {painPoints.map((point, i) => (
-            <ShineCard
-              key={i}
-              className="group rounded-3xl p-10 md:p-12 transition-all duration-500 opacity-100 translate-y-0"
-              style={{
-                background: "rgba(255,255,255,0.85)",
-                backdropFilter: "blur(20px)",
-                border: "1px solid rgba(196,149,106,0.1)",
-                boxShadow: "0 10px 40px -15px rgba(45,41,38,0.05)",
-              }}
+            <div 
+              key={i} 
+              className="group bg-white rounded-[2.5rem] p-10 md:p-14 border border-gold/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col gap-10"
             >
-              <div 
-                className="mb-8 p-4 rounded-2xl inline-block bg-gold/5 transition-colors duration-500"
-                style={{ color: "var(--color-gold)" }}
-              >
+              <div className="w-16 h-16 rounded-3xl bg-gold/5 flex items-center justify-center text-gold transition-colors duration-500 group-hover:bg-gold/10">
                 {point.icon}
               </div>
-              <p
-                className="text-base md:text-xl leading-relaxed"
-                style={{
-                  color: "var(--color-charcoal)",
-                  fontWeight: 400,
-                }}
-              >
+              <p className="text-xl md:text-2xl font-light text-charcoal leading-relaxed">
                 {point.text}
               </p>
-            </ShineCard>
+            </div>
           ))}
         </div>
       </div>
     </section>
   );
 }
-

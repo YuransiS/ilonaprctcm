@@ -1,127 +1,87 @@
 "use client";
 
-import { useScrollReveal } from "@/hooks/useScrollReveal";
-import ShineCard from "@/components/ShineCard";
-
-import { Languages, ShieldAlert, Sparkles, Gem, ScrollText } from "lucide-react";
+import { LucideIcon, Sparkles, Heart, MessageCircle, ShieldCheck, Zap, Users } from "lucide-react";
 
 const topics = [
   {
-    icon: <Languages size={32} strokeWidth={1.2} />,
-    title: "Мова кохання",
-    desc: "Як зрозуміти, чого насправді потребує твій чоловік і як говорити його мовою",
+    icon: <Sparkles className="w-10 h-10" />,
+    title: "Психологія стосунків",
+    desc: "Як працює чоловіча психологія і що насправді шукає партнер у шлюбі.",
   },
   {
-    icon: <ShieldAlert size={32} strokeWidth={1.2} />,
-    title: "Кордони без конфліктів",
-    desc: "Як встановити здорові межі, не руйнуючи стосунки та не відштовхуючи партнера",
+    icon: <Heart className="w-10 h-10" />,
+    title: "Близькість і пристрасть",
+    desc: "Повернення щирості, емоційної глибини та сексуальної енергії у пару.",
   },
   {
-    icon: <Sparkles size={32} strokeWidth={1.2} />,
-    title: "Емоційна близькість",
-    desc: "Практичні техніки для відновлення довіри та глибокого емоційного зв'язку",
+    icon: <MessageCircle className="w-10 h-10" />,
+    title: "Комунікація без сварок",
+    desc: "Мистецтво говорити про складне так, щоб тебе чули, а не захищалися.",
   },
   {
-    icon: <Gem size={32} strokeWidth={1.2} />,
-    title: "Твоя цінність",
-    desc: "Як перестати знецінювати себе і стати магнітом для любові та уваги",
+    icon: <ShieldCheck className="w-10 h-10" />,
+    title: "Межі та повага",
+    desc: "Побудова здорових кордонів, які зміцнюють стосунки і твій авторитет.",
   },
   {
-    icon: <ScrollText size={32} strokeWidth={1.2} />,
-    title: "Сценарії стосунків",
-    desc: "Розбір типових помилок та конкретні скрипти для складних розмов з партнером",
+    icon: <Zap className="w-10 h-10" />,
+    title: "Ресурсність жінки",
+    desc: "Як наповнювати себе і бути джерелом натхнення для партнера без виснаження.",
+  },
+  {
+    icon: <Users className="w-10 h-10" />,
+    title: "Гармонія в родині",
+    desc: "Створення атмосфери підтримки, куди хочеться повертатися щодня.",
   },
 ];
 
 export default function WhatToExpect() {
-  /*
-  const headingRef = useScrollReveal<HTMLDivElement>({
-    y: 30,
-    duration: 0.8,
-  });
-
-  const itemsRef = useScrollReveal<HTMLDivElement>({
-    y: 50,
-    stagger: 0.1,
-    duration: 0.8,
-    children: true,
-    start: "top 85%",
-  });
-  */
-
   return (
-    <section
-      className="section-padding bg-cream relative overflow-hidden"
-      id="what-to-expect"
-    >
-      <div className="max-w-7xl mx-auto px-4 md:px-8 relative z-10">
-        <div className="text-center mb-16 md:mb-24">
-          <span
-            className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-4"
-            style={{ color: "var(--color-gold)", fontWeight: 500 }}
-          >
+    <section className="section-padding bg-cream relative overflow-hidden" id="what-to-expect">
+      {/* Background Accent Gradients */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-[radial-gradient(circle_at_100%_0%,rgba(196,149,106,0.03),transparent_60%)] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-1/3 h-full bg-[radial-gradient(circle_at_0%_100%,rgba(232,196,184,0.03),transparent_60%)] pointer-events-none" />
+
+      <div className="container-custom relative z-10">
+        <header className="text-center mb-16 md:mb-24 flex flex-col items-center">
+          <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-6 text-gold font-medium">
             Програма ефіру
           </span>
-          <h2
-            className="mb-8 font-serif"
-            style={{
-              fontSize: "clamp(2rem, 8vw, 4rem)",
-              fontWeight: 400,
-              lineHeight: 1.1,
-              color: "var(--color-charcoal)",
-            }}
-          >
+          <h2 className="heading-serif mb-8 text-charcoal" style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.1 }}>
             ЩО БУДЕ НА ЕФІРІ
           </h2>
-        </div>
+          <div className="w-24 h-px bg-gold/20 mb-8" />
+        </header>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
           {topics.map((topic, i) => (
-            <ShineCard
-              key={i}
-              className="group rounded-3xl p-10 md:p-12 flex flex-col gap-8 transition-all duration-700 opacity-100 translate-y-0"
-              style={{
-                background: "rgba(255,255,255,0.9)",
-                backdropFilter: "blur(30px)",
-                border: "1px solid rgba(196,149,106,0.1)",
-                boxShadow: "0 20px 60px -20px rgba(45,41,38,0.05)",
-              }}
+            <article 
+              key={i} 
+              className="group flex flex-col gap-10 hover:-translate-y-2 transition-transform duration-500"
             >
-              <div 
-                className="flex-shrink-0 w-20 h-20 rounded-3xl flex items-center justify-center transition-all duration-700 shadow-lg"
-                style={{ 
-                  background: "linear-gradient(135deg, var(--color-powder) 0%, var(--color-blush) 100%)", 
-                  color: "var(--color-gold-dark)",
-                }}
-              >
-                <div className="relative z-10">{topic.icon}</div>
-              </div>
-              <div className="flex-1 w-full">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="text-[10px] md:text-xs font-serif opacity-40 tracking-widest uppercase">Крок 0{i+1}</span>
-                  <div className="h-px flex-1 bg-gold/10" />
+              <div className="flex items-center gap-6">
+                <div className="w-24 h-24 rounded-[2rem] bg-soft-white flex items-center justify-center text-gold shadow-lg shadow-gold/5 group-hover:scale-105 transition-transform duration-500 border border-gold/5">
+                  {topic.icon}
                 </div>
-                <h3
-                  className="text-2xl md:text-3xl mb-4 font-normal font-serif min-h-[1.5em]"
-                  style={{ color: "var(--color-charcoal)", letterSpacing: "-0.01em", lineHeight: 1.2 }}
-                >
+                <div className="flex-1 h-[1px] bg-gold/10 hidden md:block" />
+              </div>
+              
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <span className="text-xs font-serif opacity-30 tracking-[0.3em] uppercase">Крок 0{i+1}</span>
+                  <div className="w-8 h-[1px] bg-gold/10" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-serif text-charcoal leading-tight">
                   {topic.title}
                 </h3>
-                <p
-                  className="text-base md:text-lg leading-relaxed opacity-80"
-                  style={{
-                    color: "var(--color-charcoal-light)",
-                    fontWeight: 300,
-                  }}
-                >
+                <p className="text-lg md:text-xl font-light text-charcoal-light leading-relaxed opacity-80">
                   {topic.desc}
                 </p>
               </div>
-            </ShineCard>
+            </article>
           ))}
         </div>
       </div>
     </section>
   );
 }
-
