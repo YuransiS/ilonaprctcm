@@ -42,8 +42,8 @@ export default function CountdownTimer({ targetDate }: { targetDate: Date }) {
       <div className="flex justify-center items-center gap-4 md:gap-10 opacity-20 animate-pulse">
         {["Днів", "Годин", "Хвилин", "Секунд"].map((label) => (
           <div key={label} className="flex flex-col items-center gap-4">
-            <div className="w-20 md:w-32 h-20 md:h-32 bg-gold/10 rounded-3xl" />
-            <div className="w-12 h-4 bg-gold/10 rounded-full" />
+            <div className="w-14 md:w-32 h-14 md:h-32 bg-gold/10 rounded-2xl md:rounded-3xl" />
+            <div className="w-10 h-3 bg-gold/10 rounded-full" />
           </div>
         ))}
       </div>
@@ -58,12 +58,12 @@ export default function CountdownTimer({ targetDate }: { targetDate: Date }) {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 w-full py-8">
+    <div className="flex flex-row justify-center items-center gap-3 sm:gap-6 md:gap-16 w-full py-8 overflow-visible">
       {items.map((item, idx) => (
         <div key={idx} className="flex flex-col items-center justify-center gap-6">
           <div 
-            className="flex items-center justify-center font-serif text-charcoal leading-none p-4 md:p-8 min-w-[100px] md:min-w-[150px] bg-white rounded-[2rem] border border-gold/10 shadow-lg shadow-gold/5" 
-            style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)" }}
+            className="flex items-center justify-center font-serif text-charcoal leading-none p-3 md:p-8 min-w-[65px] sm:min-w-[80px] md:min-w-[150px] bg-white rounded-2xl md:rounded-[2rem] border border-gold/10 shadow-lg shadow-gold/5" 
+            style={{ fontSize: "clamp(1.4rem, 5vw, 4.5rem)" }}
           >
             {item.value.toString().padStart(2, "0")}
           </div>

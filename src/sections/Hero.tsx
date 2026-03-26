@@ -23,14 +23,14 @@ export default function Hero() {
         <div 
           className="absolute inset-0 pointer-events-none"
           style={{
-            background: "linear-gradient(to bottom, rgba(45,41,38,0.3) 0%, rgba(255,248,240,0.5) 30%, var(--color-cream) 100%)",
+            background: "linear-gradient(to bottom, rgba(45,41,38,0.1) 0%, rgba(232,196,184,0.1) 40%, rgba(255,248,240,0.3) 70%, var(--color-cream) 100%)",
           }}
         />
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10 flex flex-col items-center justify-center text-center pt-32 pb-20 md:pt-40 md:pb-32 min-h-[100dvh]">
-        <div className="w-full max-w-5xl flex flex-col items-center">
+      <div className="container-custom relative z-10 flex flex-col items-center justify-end text-center pt-48 pb-12 md:pb-32 min-h-[100dvh]">
+        <div className="w-full max-w-5xl flex flex-col items-center mb-8 md:mb-16">
           
           <div className="mb-8 md:mb-10">
             <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase px-6 py-2 rounded-full bg-gold/10 backdrop-blur-md border border-gold/10 text-gold-dark font-semibold">
@@ -49,12 +49,12 @@ export default function Hero() {
           </div>
 
           <div className="w-full flex flex-col items-center gap-16 md:gap-24">
-            <div className="w-full max-w-2xl px-4">
+            <div className="w-full max-w-2xl px-4 text-reveal-mask">
               <CountdownTimer targetDate={TARGET_DATE} />
             </div>
 
-            <div className="flex justify-center pb-10">
-              <MagneticButton href="#" className="btn-primary">
+            <div className="flex justify-center pb-10 w-full px-4">
+              <MagneticButton href="#" className="btn-primary w-full md:w-fit">
                 Забронювати місце
               </MagneticButton>
             </div>
