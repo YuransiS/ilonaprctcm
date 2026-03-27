@@ -198,7 +198,7 @@ function saveToSheetDynamically(doc, sheetName, dataObject) {
   var sheet;
   if (sheetName === "Практикум") {
     // Жорстка прив'язка до GID Практикуму (ні в якому разі не прив'язувати сюди урок)
-    sheet = getSheetByGidOrName(doc, 486433203, sheetName);
+    sheet = getSheetByGidOrName(doc, 1217591980, sheetName);
   } else {
     sheet = doc.getSheetByName(sheetName);
   }
