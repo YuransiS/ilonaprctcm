@@ -4,18 +4,18 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 
 export default function PageLoader() {
-  return null;
   const loaderRef = useRef<HTMLDivElement>(null);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
-    /*
     const loader = loaderRef.current;
     if (!loader) return;
 
+    // Prevent scrolling during load
     document.body.style.overflow = "hidden";
 
     const tl = gsap.timeline({
+      delay: 0.5,
       onComplete: () => {
         setDone(true);
         document.body.style.overflow = "";
@@ -23,17 +23,15 @@ export default function PageLoader() {
     });
 
     tl.to(loader, {
-      clipPath: "inset(0 0 100% 0)",
+      yPercent: -100,
       duration: 1.2,
       ease: "power4.inOut",
-      delay: 0.5,
     });
 
     return () => {
       tl.kill();
       document.body.style.overflow = "";
     };
-    */
   }, []);
 
   if (done) return null;
@@ -41,20 +39,14 @@ export default function PageLoader() {
   return (
     <div
       ref={loaderRef}
-      className="page-loader will-change-clip"
-      style={{ clipPath: "inset(0 0 0 0)" }}
+      className="fixed inset-0 z-[9999] bg-cream flex items-center justify-center"
     >
-      <div className="flex flex-col items-center gap-3">
-        <div
-          className="w-8 h-8 rounded-full border-2 border-gold border-t-transparent"
-          style={{ animation: "spin 0.8s linear infinite" }}
-        />
-        <span
-          className="text-sm tracking-[0.3em] uppercase"
-          style={{ color: "var(--color-warm-gray)", fontFamily: "var(--font-sans)" }}
-        >
-          Loading
+      <div className="flex flex-col items-center gap-6">
+        <div className="w-16 h-px bg-gold/30 animate-pulse" />
+        <span className="text-[10px] tracking-[0.4em] uppercase text-gold font-bold">
+          Ilona Broadcast
         </span>
+        <div className="w-16 h-px bg-gold/30 animate-pulse" />
       </div>
     </div>
   );

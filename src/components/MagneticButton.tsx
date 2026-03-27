@@ -22,7 +22,6 @@ export default function MagneticButton({
   const xTo = useRef<gsap.QuickToFunc | null>(null);
   const yTo = useRef<gsap.QuickToFunc | null>(null);
 
-  /*
   useEffect(() => {
     const el = buttonRef.current;
     if (!el) return;
@@ -48,20 +47,16 @@ export default function MagneticButton({
       const rect = el.getBoundingClientRect();
       const relX = e.clientX - (rect.left + rect.width / 2);
       const relY = e.clientY - (rect.top + rect.height / 2);
-      xTo.current(relX * strength);
-      yTo.current(relY * strength);
+      xTo.current?.(relX * strength);
+      yTo.current?.(relY * strength);
     },
     [strength]
   );
 
   const onMouseLeave = useCallback(() => {
-    if (xTo.current) xTo.current(0);
-    if (yTo.current) yTo.current(0);
+    xTo.current?.(0);
+    yTo.current?.(0);
   }, []);
-  */
-
-  const onMouseMove = undefined;
-  const onMouseLeave = undefined;
 
   const Tag = href ? "a" : "button";
 

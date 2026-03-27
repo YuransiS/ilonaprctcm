@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import "./globals.css";
+import SmoothScrollProvider from "@/providers/SmoothScrollProvider";
+import PageLoader from "@/components/PageLoader";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -48,8 +50,13 @@ export default function RootLayout({
       lang="uk"
       className={`${inter.variable} ${playfair.variable} antialiased`}
     >
-      <body>
-        {children}
+      <body className="bg-cream selection:bg-blush selection:text-charcoal overflow-x-hidden">
+        <PageLoader />
+        <SmoothScrollProvider>
+          <main className="relative z-10 w-full overflow-x-hidden">
+            {children}
+          </main>
+        </SmoothScrollProvider>
       </body>
     </html>
   );

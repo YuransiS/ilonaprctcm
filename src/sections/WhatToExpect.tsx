@@ -1,6 +1,7 @@
 "use client";
 
-import { LucideIcon, Sparkles, Heart, MessageCircle, ShieldCheck, Zap, Users } from "lucide-react";
+import { Sparkles, Heart, MessageCircle, ShieldCheck, Zap, Users } from "lucide-react";
+import { motion } from "framer-motion";
 
 const topics = [
   {
@@ -44,23 +45,45 @@ export default function WhatToExpect() {
 
       <div className="container-custom relative z-10">
         <header className="text-center mb-16 md:mb-24 flex flex-col items-center">
-          <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-6 text-gold font-medium">
+          <motion.span 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase mb-6 text-gold font-medium"
+          >
             Програма ефіру
-          </span>
-          <h2 className="heading-serif mb-8 text-charcoal" style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.1 }}>
+          </motion.span>
+          <motion.h2 
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="heading-serif mb-8 text-charcoal" 
+            style={{ fontSize: "clamp(2rem, 8vw, 4.5rem)", lineHeight: 1.1 }}
+          >
             ЩО БУДЕ НА ЕФІРІ
-          </h2>
-          <div className="w-24 h-px bg-gold/20 mb-8" />
+          </motion.h2>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3, duration: 0.8 }}
+            className="w-24 h-px bg-gold/20 mb-8" 
+          />
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 md:gap-16">
           {topics.map((topic, i) => (
-            <article 
+            <motion.article 
               key={i} 
+              initial={{ opacity: 0, x: i % 3 === 0 ? -30 : i % 3 === 2 ? 30 : 0, y: 30 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: i * 0.1, duration: 1, ease: [0.16, 1, 0.3, 1] }}
               className="group flex flex-col gap-10 hover:-translate-y-2 transition-transform duration-500"
             >
               <div className="flex items-center gap-6">
-                <div className="w-24 h-24 rounded-[2rem] bg-soft-white flex items-center justify-center text-gold shadow-lg shadow-gold/5 group-hover:scale-105 transition-transform duration-500 border border-gold/5">
+                <div className="w-24 h-24 rounded-[2rem] bg-soft-white flex items-center justify-center text-gold shadow-lg shadow-gold/5 group-hover:scale-110 transition-transform duration-500 border border-gold/5">
                   {topic.icon}
                 </div>
                 <div className="flex-1 h-[1px] bg-gold/10 hidden md:block" />
@@ -78,7 +101,7 @@ export default function WhatToExpect() {
                   {topic.desc}
                 </p>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
