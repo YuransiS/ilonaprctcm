@@ -59,8 +59,11 @@ export default function FinalCTA() {
           transition={{ delay: 0.5, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
           className="w-full max-w-3xl mb-20 md:mb-28 px-4"
         >
-          <div className="p-8 md:p-14 bg-white/50 backdrop-blur-3xl rounded-[3rem] border border-gold/10 shadow-xl">
-             <CountdownTimer targetDate={TARGET_DATE} />
+          <div className="p-8 md:p-14 bg-white/50 backdrop-blur-3xl rounded-[3rem] border border-gold/10 shadow-xl flex flex-col items-center">
+             <span className="text-2xl md:text-5xl font-serif text-charcoal italic tracking-wider">
+               29 березня о 14:00
+             </span>
+             <div className="w-16 h-px bg-gold/20 mt-8" />
           </div>
         </motion.div>
 

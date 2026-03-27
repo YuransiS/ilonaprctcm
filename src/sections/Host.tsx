@@ -22,7 +22,7 @@ export default function Host() {
           >
             <div className="relative z-10 aspect-[3/4] rounded-[3rem] overflow-hidden shadow-2xl shadow-charcoal/10 border border-gold/5">
               <Image
-                src="/host.png"
+                src="/hero.png"
                 alt="Ведуча ефіру"
                 fill
                 className="object-cover object-[center_20%] group-hover:scale-105 transition-transform duration-1000 ease-out"

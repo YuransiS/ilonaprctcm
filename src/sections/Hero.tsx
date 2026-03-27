@@ -2,15 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
+import MagneticButton from "@/components/MagneticButton";
 import { motion } from "framer-motion";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import CountdownTimer from "@/components/CountdownTimer";
-import MagneticButton from "@/components/MagneticButton";
 
 gsap.registerPlugin(ScrollTrigger);
-
-const TARGET_DATE = new Date("2026-04-15T19:00:00+02:00");
 
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -59,7 +56,7 @@ export default function Hero() {
       {/* Background Image Container */}
       <div ref={imageRef} className="absolute inset-0 z-0 scale-110">
         <Image
-          src="/hero.png"
+          src="/host.png"
           alt="Hero background"
           fill
           className="object-cover object-top brightness-[0.95]"
@@ -114,12 +111,15 @@ export default function Hero() {
               </motion.h2>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="w-full flex flex-col items-center gap-4 md:gap-16">
-              <div className="w-full max-w-2xl px-2">
-                <CountdownTimer targetDate={TARGET_DATE} />
+            <motion.div variants={itemVariants} className="w-full flex flex-col items-center gap-6 md:gap-16">
+              <div className="flex flex-col items-center">
+                <span className="text-xl md:text-3xl font-serif text-charcoal-light tracking-wide italic">
+                  29 березня о 14:00
+                </span>
+                <div className="w-12 h-px bg-gold/30 mt-4" />
               </div>
 
-              <div className="flex justify-center w-full px-2 pt-2">
+              <div className="flex justify-center w-full px-2">
                 <MagneticButton href="#" className="btn-primary w-full md:w-fit shadow-[0_20px_60px_-15px_rgba(196,149,106,0.6)]">
                   Забронювати місце
                 </MagneticButton>
