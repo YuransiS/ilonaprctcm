@@ -55,7 +55,7 @@ export default function PainPoints() {
               key={i} 
               className="group bg-white rounded-[2.5rem] p-10 md:p-14 border border-gold/5 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 flex flex-col gap-10"
             >
-              <div className="w-16 h-16 rounded-3xl bg-gold/5 flex items-center justify-center text-gold transition-colors duration-500 group-hover:bg-gold/10">
+              <div className="w-16 h-16 rounded-3xl bg-gold/10 flex items-center justify-center text-gold transition-all duration-500 group-hover:bg-gold group-hover:text-white group-hover:scale-110">
                 {point.icon}
               </div>
               <p className="text-xl md:text-2xl font-light text-charcoal leading-relaxed">

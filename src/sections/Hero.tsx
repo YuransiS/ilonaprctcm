@@ -29,39 +29,39 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10 flex flex-col items-center justify-end text-center pt-20 pb-10 md:pb-24 min-h-[100dvh]">
+      <div className="container-custom relative z-10 flex flex-col items-center justify-end text-center pt-20 pb-4 md:pb-20 min-h-[100dvh]">
         
+
         {/* White glow behind text area for readability */}
-        <div 
-          className="absolute inset-x-0 bottom-0 top-[40%] pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_85%,rgba(255,248,240,0.9)_0%,rgba(255,248,240,0.4)_50%,transparent_100%)]" 
+        <div
+          className="absolute inset-x-0 bottom-0 top-[35%] pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_90%,rgba(255,248,240,0.95)_0%,rgba(255,248,240,0.6)_40%,transparent_100%)]"
         />
 
         <div className="w-full max-w-5xl flex flex-col items-center relative z-10">
-          {/* Main content wrapper with optional blur for mobile contrast */}
-          <div className="flex flex-col items-center mb-6 md:mb-12 md:bg-transparent px-4 py-8 rounded-[2.5rem]">
+          <div className="flex flex-col items-center mb-4 md:mb-12 px-4 py-8 rounded-[2.5rem]">
             
-            <div className="mb-6 md:mb-10">
+            <div className="mb-4 md:mb-10">
               <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase px-5 py-2 rounded-full bg-white/60 backdrop-blur-md border border-gold/20 text-gold-dark font-bold shadow-sm">
                 Безкоштовний онлайн ефір
               </span>
             </div>
 
-            <h1 className="heading-serif mb-6 md:mb-10 text-charcoal" style={{ fontSize: "clamp(1.8rem, 9vw, 6.5rem)", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
+            <h1 className="heading-serif mb-4 md:mb-10 text-charcoal" style={{ fontSize: "clamp(1.6rem, 9vw, 6.5rem)", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
               ХОЧЕШ ВІД ЧОЛОВІКА БІЛЬШЕ?
             </h1>
 
-            <div className="mb-8 md:mb-16 max-w-4xl">
-              <p className="text-lg md:text-3xl font-light text-charcoal-light leading-relaxed">
+            <div className="mb-6 md:mb-12 max-w-4xl">
+              <p className="text-xl md:text-3xl font-light text-charcoal-light leading-relaxed">
                 Приєднуйся до безкоштовного ефіру про стосунки <br className="hidden md:block" /> які змінять твоє життя назавжди
               </p>
             </div>
 
-            <div className="w-full flex flex-col items-center gap-6 md:gap-16">
+            <div className="w-full flex flex-col items-center gap-4 md:gap-16">
               <div className="w-full max-w-2xl px-2">
                 <CountdownTimer targetDate={TARGET_DATE} />
               </div>
 
-              <div className="flex justify-center w-full px-2 pt-4">
+              <div className="flex justify-center w-full px-2 pt-2">
                 <MagneticButton href="#" className="btn-primary w-full md:w-fit shadow-[0_20px_60px_-15px_rgba(196,149,106,0.6)]">
                   Забронювати місце
                 </MagneticButton>
