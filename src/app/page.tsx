@@ -27,11 +27,11 @@ export default function Home() {
       <FAQ />
       <FinalCTA onRegisterAction={openPopup} />
       <Footer />
-      
-      <RegistrationPopup 
-        isOpen={isPopupOpen} 
-        onClose={closePopup} 
-        telegramLink="https://t.me/+placeholder" // User will provide this later
+
+      <RegistrationPopup
+        isOpen={isPopupOpen}
+        onClose={closePopup}
+        telegramLink="https://t.me/ilonaasoldatiuk_bot?start=69c6efac1a79a3d88f059bee"
       />
     </main>
   );
