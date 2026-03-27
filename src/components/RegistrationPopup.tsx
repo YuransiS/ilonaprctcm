@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, User, Phone, CheckCircle2 } from "lucide-react";
+import { X, User, CheckCircle2, Send } from "lucide-react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
 interface RegistrationPopupProps {
   isOpen: boolean;
@@ -11,9 +13,26 @@ interface RegistrationPopupProps {
 }
 
 export default function RegistrationPopup({ isOpen, onClose, telegramLink = "#" }: RegistrationPopupProps) {
-  const [formData, setFormData] = useState({ name: "", phone: "" });
+  const [formData, setFormData] = useState({ name: "", phone: "", telegram: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [countryCode, setCountryCode] = useState("ua");
+
+  // Fetch country by IP
+  useEffect(() => {
+    const fetchCountry = async () => {
+      try {
+        const response = await fetch("https://ipapi.co/json/");
+        const data = await response.json();
+        if (data.country_code) {
+          setCountryCode(data.country_code.toLowerCase());
+        }
+      } catch (error) {
+        console.error("Error fetching country by IP:", error);
+      }
+    };
+    fetchCountry();
+  }, []);
 
   // Lock scroll when open
   useEffect(() => {
@@ -24,7 +43,7 @@ export default function RegistrationPopup({ isOpen, onClose, telegramLink = "#" 
       // Reset state on close
       setTimeout(() => {
         setIsSuccess(false);
-        setFormData({ name: "", phone: "" });
+        setFormData({ name: "", phone: "", telegram: "" });
       }, 300);
     }
     return () => {
@@ -105,12 +124,13 @@ export default function RegistrationPopup({ isOpen, onClose, telegramLink = "#" 
                   </header>
 
                   <form onSubmit={handleSubmit} className="space-y-6">
+                    {/* Name Field */}
                     <div className="space-y-2">
-                      <label className="text-[10px] uppercase tracking-widest font-bold text-gold ml-1">
+                       <label className="text-[10px] uppercase tracking-widest font-bold text-gold ml-1">
                         Ваше ім'я
                       </label>
                       <div className="relative">
-                        <User className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/50" />
+                        <User className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/50 z-10 pointer-events-none" />
                         <input
                           required
                           type="text"
@@ -122,18 +142,35 @@ export default function RegistrationPopup({ isOpen, onClose, telegramLink = "#" 
                       </div>
                     </div>
 
-                    <div className="space-y-2">
+                    {/* Phone Field using react-phone-input-2 */}
+                    <div className="space-y-2 phone-input-container">
                       <label className="text-[10px] uppercase tracking-widest font-bold text-gold ml-1">
                         Ваш телефон
                       </label>
+                      <PhoneInput
+                        country={countryCode}
+                        value={formData.phone}
+                        onChange={(phone) => setFormData({ ...formData, phone })}
+                        containerClass="!w-full"
+                        inputClass="!w-full !bg-white/50 !border-gold/10 !rounded-2xl !py-8 !pl-16 !pr-6 !focus:border-gold !focus:bg-white !transition-all !text-charcoal !h-auto !text-lg"
+                        buttonClass="!bg-transparent !border-none !pl-4 !rounded-l-2xl"
+                        dropdownClass="!rounded-xl !border-gold/10 !shadow-xl"
+                      />
+                    </div>
+
+                    {/* Telegram Field */}
+                    <div className="space-y-2">
+                      <label className="text-[10px] uppercase tracking-widest font-bold text-gold ml-1">
+                        Ваш Telegram
+                      </label>
                       <div className="relative">
-                        <Phone className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/50" />
+                        <Send className="absolute left-6 top-1/2 -translate-y-1/2 w-5 h-5 text-gold/50 z-10 pointer-events-none" />
                         <input
                           required
-                          type="tel"
-                          placeholder="+380"
-                          value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          type="text"
+                          placeholder="@username"
+                          value={formData.telegram}
+                          onChange={(e) => setFormData({ ...formData, telegram: e.target.value })}
                           className="w-full bg-white/50 border border-gold/10 rounded-2xl py-5 pl-14 pr-6 focus:outline-none focus:border-gold focus:bg-white transition-all text-charcoal"
                         />
                       </div>
