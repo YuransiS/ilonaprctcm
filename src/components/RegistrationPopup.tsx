@@ -56,12 +56,29 @@ export default function RegistrationPopup({ isOpen, onClose, telegramLink = "#" 
     setIsSubmitting(true);
 
     try {
+      // Extract UTM parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmParams = {
+        utm_source: urlParams.get("utm_source") || "",
+        utm_medium: urlParams.get("utm_medium") || "",
+        utm_campaign: urlParams.get("utm_campaign") || "",
+        utm_content: urlParams.get("utm_content") || "",
+        utm_term: urlParams.get("utm_term") || "",
+      };
+
+      const submissionData = {
+        ...formData,
+        ...utmParams,
+        sheetName: "Практикум", // Correct sheet for this landing
+        country: countryCode.toUpperCase(),
+      };
+
       const response = await fetch("/api/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(submissionData),
       });
 
       const result = await response.json();
