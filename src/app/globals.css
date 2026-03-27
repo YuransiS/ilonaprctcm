@@ -47,30 +47,99 @@ body {
 /* Компоненты лучше писать через @layer components */
 @layer components {
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: 80rem; /* 7xl */
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 640px) {
+    .container-custom {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .container-custom {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
   }
 
   .section-padding {
-    @apply py-16 md:py-24 lg:py-32;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @media (min-width: 768px) {
+    .section-padding {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
+  }
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-top: 8rem;
+      padding-bottom: 8rem;
+    }
   }
 
   .heading-serif {
-    @apply font-serif font-normal;
+    font-family: var(--font-playfair), Georgia, serif;
+    font-weight: 400;
   }
 
   .text-reveal-mask {
-    /* Чтобы анимации текста не вылезали за свои рамки */
-    @apply overflow-hidden block;
+    overflow: hidden;
+    display: block;
   }
 
   .card-premium {
-    @apply bg-white rounded-[2rem] p-8 md:p-12 border border-[#C4956A]/10 shadow-sm transition-shadow duration-300 hover:shadow-xl;
+    background-color: white;
+    border-radius: 2rem;
+    padding: 2rem;
+    border-width: 1px;
+    border-color: rgba(196, 149, 106, 0.1);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    transition-property: box-shadow;
+    transition-duration: 300ms;
+  }
+  @media (min-width: 768px) {
+    .card-premium {
+      padding: 3rem;
+    }
+  }
+  .card-premium:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .btn-primary {
-    @apply relative inline-block px-10 py-6 md:px-16 md:py-7 rounded-full text-sm md:text-lg tracking-[0.2em] uppercase font-bold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-2xl;
+    position: relative;
+    display: inline-block;
+    padding: 1.5rem 2.5rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: white;
+    transition-property: all;
+    transition-duration: 300ms;
     background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
     box-shadow: 0 20px 50px -15px rgba(196, 149, 106, 0.6);
+  }
+  @media (min-width: 768px) {
+    .btn-primary {
+      padding: 1.75rem 4rem;
+      font-size: 1.125rem;
+      line-height: 1.75rem;
+    }
+  }
+  .btn-primary:hover {
+    scale: 1.03;
+  }
+  .btn-primary:active {
+    scale: 0.98;
   }
 }
 
