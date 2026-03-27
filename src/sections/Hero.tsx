@@ -107,21 +107,21 @@ export default function Hero() {
 
             <motion.h1 
               variants={itemVariants} 
-              className="heading-serif mb-6 md:mb-12 text-charcoal uppercase" 
-              style={{ fontSize: "clamp(1.3rem, 6.5vw, 4rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
+              className="heading-serif mb-4 md:mb-6 text-charcoal uppercase" 
+              style={{ fontSize: "clamp(1.2rem, 5.5vw, 3.2rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
             >
-              ХОЧЕШ ВІД ЧОЛОВІКА ПОДАРУНКИ І УВАГУ, АЛЕ ВІН НІЧОГО НЕ РОБИТЬ - ЯК ПРАВИЛЬНО З НИМ КОМУНІКУВАТИ, ЩОБ ОТРИМУВАТИ БАЖАНЕ
+              ХОЧЕШ ВІД ЧОЛОВІКА ПОДАРУНКИ І УВАГУ, АЛЕ ВІН НІЧОГО НЕ РОБИТЬ
             </motion.h1>
 
-            <motion.div variants={itemVariants} className="mb-6 md:mb-12 max-w-4xl">
-              <motion.h2 className="text-xl md:text-3xl font-light text-charcoal-light leading-relaxed">
-                Приєднуйся до безкоштовного ефіру про стосунки <br className="hidden md:block" /> які змінять твоє життя назавжди
+            <motion.div variants={itemVariants} className="mb-8 md:mb-12 max-w-4xl">
+              <motion.h2 className="text-xl md:text-3xl font-serif italic text-gold-dark leading-relaxed">
+                ЯК ПРАВИЛЬНО З НИМ КОМУНІКУВАТИ, ЩОБ ОТРИМУВАТИ БАЖАНЕ
               </motion.h2>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="w-full flex flex-col items-center gap-6 md:gap-16">
+            <motion.div variants={itemVariants} className="w-full flex flex-col items-center gap-6 md:gap-12">
               <div className="flex flex-col items-center">
-                <span className="text-xl md:text-3xl font-serif text-charcoal-light tracking-wide italic">
+                <span className="text-xl md:text-2xl font-light text-charcoal-light tracking-wide italic leading-none">
                   29 березня о 14:00
                 </span>
                 <div className="w-12 h-px bg-gold/30 mt-4" />
