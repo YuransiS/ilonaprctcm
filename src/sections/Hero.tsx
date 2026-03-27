@@ -99,10 +99,10 @@ export default function Hero() {
 
             <motion.h1 
               variants={itemVariants} 
-              className="heading-serif mb-4 md:mb-10 text-charcoal" 
-              style={{ fontSize: "clamp(1.6rem, 9vw, 6.5rem)", lineHeight: 1.1, letterSpacing: "-0.01em" }}
+              className="heading-serif mb-6 md:mb-12 text-charcoal uppercase" 
+              style={{ fontSize: "clamp(1.3rem, 6.5vw, 4rem)", lineHeight: 1.2, letterSpacing: "-0.01em" }}
             >
-              ХОЧЕШ ВІД ЧОЛОВІКА БІЛЬШЕ?
+              ХОЧЕШ ВІД ЧОЛОВІКА ПОДАРУНКИ І УВАГУ, АЛЕ ВІН НІЧОГО НЕ РОБИТЬ - ЯК ПРАВИЛЬНО З НИМ КОМУНІКУВАТИ, ЩОБ ОТРИМУВАТИ БАЖАНЕ
             </motion.h1>
 
             <motion.div variants={itemVariants} className="mb-6 md:mb-12 max-w-4xl">
