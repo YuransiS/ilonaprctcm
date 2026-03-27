@@ -29,40 +29,43 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="container-custom relative z-10 flex flex-col items-center justify-end text-center pt-40 pb-32 md:pb-32 min-h-[100dvh]">
+      <div className="container-custom relative z-10 flex flex-col items-center justify-end text-center pt-20 pb-10 md:pb-24 min-h-[100dvh]">
         
-        {/* Subtle white glow behind text for readability */}
+        {/* White glow behind text area for readability */}
         <div 
-          className="absolute inset-x-0 bottom-0 top-1/4 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_70%,rgba(255,248,240,0.8)_0%,transparent_70%)]" 
+          className="absolute inset-x-0 bottom-0 top-[40%] pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_85%,rgba(255,248,240,0.9)_0%,rgba(255,248,240,0.4)_50%,transparent_100%)]" 
         />
 
-        <div className="w-full max-w-5xl flex flex-col items-center relative z-10 mb-8 md:mb-12">
-          
-          <div className="mb-8 md:mb-12">
-            <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase px-6 py-2 rounded-full bg-white/50 backdrop-blur-md border border-gold/20 text-gold-dark font-bold shadow-sm">
-              Безкоштовний онлайн ефір
-            </span>
-          </div>
-
-          <h1 className="heading-serif mb-10 md:mb-14 text-charcoal" style={{ fontSize: "clamp(2rem, 9.5vw, 6.5rem)", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
-            ХОЧЕШ ВІД ЧОЛОВІКА БІЛЬШЕ?
-          </h1>
-
-          <div className="mb-14 md:mb-24 max-w-4xl px-4">
-            <p className="text-xl md:text-3xl font-light text-charcoal-light leading-relaxed">
-              Приєднуйся до безкоштовного ефіру про стосунки, <br className="hidden md:block" /> які змінять твоє життя назавжди
-            </p>
-          </div>
-
-          <div className="w-full flex flex-col items-center gap-14 md:gap-24">
-            <div className="w-full max-w-3xl px-4">
-              <CountdownTimer targetDate={TARGET_DATE} />
+        <div className="w-full max-w-5xl flex flex-col items-center relative z-10">
+          {/* Main content wrapper with optional blur for mobile contrast */}
+          <div className="flex flex-col items-center mb-6 md:mb-12 md:bg-transparent px-4 py-8 rounded-[2.5rem]">
+            
+            <div className="mb-6 md:mb-10">
+              <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase px-5 py-2 rounded-full bg-white/60 backdrop-blur-md border border-gold/20 text-gold-dark font-bold shadow-sm">
+                Безкоштовний онлайн ефір
+              </span>
             </div>
 
-            <div className="flex justify-center pb-8 w-full px-4">
-              <MagneticButton href="#" className="btn-primary w-full md:w-fit shadow-[0_20px_60px_-15px_rgba(196,149,106,0.6)]">
-                Забронювати місце
-              </MagneticButton>
+            <h1 className="heading-serif mb-6 md:mb-10 text-charcoal" style={{ fontSize: "clamp(1.8rem, 9vw, 6.5rem)", lineHeight: 1.1, letterSpacing: "-0.01em" }}>
+              ХОЧЕШ ВІД ЧОЛОВІКА БІЛЬШЕ?
+            </h1>
+
+            <div className="mb-8 md:mb-16 max-w-4xl">
+              <p className="text-lg md:text-3xl font-light text-charcoal-light leading-relaxed">
+                Приєднуйся до безкоштовного ефіру про стосунки <br className="hidden md:block" /> які змінять твоє життя назавжди
+              </p>
+            </div>
+
+            <div className="w-full flex flex-col items-center gap-6 md:gap-16">
+              <div className="w-full max-w-2xl px-2">
+                <CountdownTimer targetDate={TARGET_DATE} />
+              </div>
+
+              <div className="flex justify-center w-full px-2 pt-4">
+                <MagneticButton href="#" className="btn-primary w-full md:w-fit shadow-[0_20px_60px_-15px_rgba(196,149,106,0.6)]">
+                  Забронювати місце
+                </MagneticButton>
+              </div>
             </div>
           </div>
         </div>
