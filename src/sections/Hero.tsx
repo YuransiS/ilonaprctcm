@@ -72,6 +72,18 @@ export default function Hero() {
         />
       </div>
 
+      {/* Top Badge */}
+      <motion.div 
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.2, duration: 0.8 }}
+        className="absolute top-10 md:top-14 left-1/2 -translate-x-1/2 z-20 w-full flex justify-center px-4"
+      >
+        <span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase px-5 py-2 rounded-full bg-white/60 backdrop-blur-md border border-gold/20 text-gold-dark font-bold shadow-sm whitespace-nowrap">
+          Безкоштовний онлайн ефір
+        </span>
+      </motion.div>
+
       {/* Content */}
       <motion.div 
         variants={containerVariants}
@@ -91,11 +103,7 @@ export default function Hero() {
         <div className="w-full max-w-5xl flex flex-col items-center relative z-10">
           <div className="flex flex-col items-center mb-4 md:mb-12 px-4 py-8 rounded-[2.5rem]">
             
-            <motion.div variants={itemVariants} className="mb-4 md:mb-10">
-              <motion.span className="inline-block text-[10px] md:text-sm tracking-[0.4em] uppercase px-5 py-2 rounded-full bg-white/60 backdrop-blur-md border border-gold/20 text-gold-dark font-bold shadow-sm">
-                Безкоштовний онлайн ефір
-              </motion.span>
-            </motion.div>
+            {/* Badge removed from here */}
 
             <motion.h1 
               variants={itemVariants} 
