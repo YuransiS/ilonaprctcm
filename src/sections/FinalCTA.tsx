@@ -1,12 +1,9 @@
 "use client";
 
 import MagneticButton from "@/components/MagneticButton";
-import CountdownTimer from "@/components/CountdownTimer";
 import { motion } from "framer-motion";
 
-const TARGET_DATE = new Date("2026-04-15T19:00:00+02:00");
-
-export default function FinalCTA() {
+export default function FinalCTA({ onRegisterAction }: { onRegisterAction: () => void }) {
   return (
     <section className="section-padding bg-cream relative overflow-hidden" id="final-cta">
       {/* Dynamic Background Accents */}
@@ -74,7 +71,7 @@ export default function FinalCTA() {
           transition={{ delay: 0.8 }}
           className="flex flex-col items-center gap-10"
         >
-          <MagneticButton href="#" className="btn-primary">
+          <MagneticButton onClick={onRegisterAction} className="btn-primary">
             Зареєструватися безкоштовно
           </MagneticButton>
           <div className="flex items-center gap-4 text-xs tracking-widest uppercase text-gold font-bold opacity-70">

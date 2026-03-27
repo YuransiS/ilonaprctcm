@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Hero from "@/sections/Hero";
 import PainPoints from "@/sections/PainPoints";
 import WhatToExpect from "@/sections/WhatToExpect";
@@ -6,18 +9,30 @@ import AfterBroadcast from "@/sections/AfterBroadcast";
 import FAQ from "@/sections/FAQ";
 import FinalCTA from "@/sections/FinalCTA";
 import Footer from "@/sections/Footer";
+import RegistrationPopup from "@/components/RegistrationPopup";
 
 export default function Home() {
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+
+  const openPopup = () => setIsPopupOpen(true);
+  const closePopup = () => setIsPopupOpen(false);
+
   return (
     <main>
-      <Hero />
+      <Hero onRegisterAction={openPopup} />
       <PainPoints />
       <WhatToExpect />
       <Host />
       <AfterBroadcast />
       <FAQ />
-      <FinalCTA />
+      <FinalCTA onRegisterAction={openPopup} />
       <Footer />
+      
+      <RegistrationPopup 
+        isOpen={isPopupOpen} 
+        onClose={closePopup} 
+        telegramLink="https://t.me/+placeholder" // User will provide this later
+      />
     </main>
   );
 }

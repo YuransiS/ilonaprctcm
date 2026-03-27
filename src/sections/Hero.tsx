@@ -9,7 +9,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function Hero() {
+export default function Hero({ onRegisterAction }: { onRegisterAction: () => void }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const imageRef = useRef<HTMLDivElement>(null);
 
@@ -128,7 +128,7 @@ export default function Hero() {
               </div>
 
               <div className="flex justify-center w-full px-2">
-                <MagneticButton href="#" className="btn-primary w-full md:w-fit shadow-[0_20px_60px_-15px_rgba(196,149,106,0.6)]">
+                <MagneticButton onClick={onRegisterAction} className="btn-primary w-full md:w-fit shadow-[0_20px_60px_-15px_rgba(196,149,106,0.6)]">
                   Забронювати місце
                 </MagneticButton>
               </div>
