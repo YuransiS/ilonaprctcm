@@ -69,7 +69,7 @@ export default function RegistrationPopup({ isOpen, onClose, telegramLink = "#" 
       const submissionData = {
         ...formData,
         ...utmParams,
-        sheetName: "Практикум", // Correct sheet for this landing
+        sheetName: "ilonaprctcm", // Unique identifier for routing
         country: countryCode.toUpperCase(),
       };
 

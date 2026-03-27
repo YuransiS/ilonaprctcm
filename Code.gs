@@ -70,13 +70,16 @@ function doPost(e) {
     var oName = data.sheetName || data.sheet_name;
     
     if (oName === "leads VSL" || oName === "leads_VSL") {
-      // ПРОБЛЕМА БУЛА ТУТ: Повертаю leads VSL на "урок" (я помилково кинув на Практикум)
+      // Пріоритет для старих лендингів
       data.sheetName = "урок";
       data.sheet_name = "урок";
-    } else if (!oName || oName === "Вхідні Заявки" || oName === "Вхідні заявки" || oName === "Leads_Challenge" || oName === "ilonaprctcm") {
-      // Новий лендинг приходить порожнім або як "Вхідні заявки". Направляємо в Практикум.
+    } else if (!oName || oName === "Вхідні Заявки" || oName === "Вхідні заявки" || oName === "Leads_Challenge") {
+      // Старий дефолтний Практикум
       data.sheetName = "Практикум";
       data.sheet_name = "Практикум";
+    } else if (oName === "ilonaprctcm") {
+      // Новий лендинг залишаємо з його ім'ям для специфічного роутингу нижче
+      data.sheetName = "ilonaprctcm";
     }
     
     // Якщо щось піде не по плану (у Неопределенное), прокидуємо URL
@@ -196,9 +199,12 @@ function saveToSheetStrictly(doc, sheetName, dataObject) {
 // ========== ДИНАМІЧНЕ ДОДАВАННЯ СТОВПЦІВ ТА ЗАПИС (ТВОЯ ОРИГІНАЛЬНА ЛОГІКА ДЛЯ ІНШИХ СТОРІНОК) ==========
 function saveToSheetDynamically(doc, sheetName, dataObject) {
   var sheet;
-  if (sheetName === "Практикум") {
-    // Жорстка прив'язка до GID Практикуму (ні в якому разі не прив'язувати сюди урок)
-    sheet = getSheetByGidOrName(doc, 1217591980, sheetName);
+  if (sheetName === "ilonaprctcm") {
+    // ВАШ НОВИЙ ПРАКТИКУМ (Безопасно, окремо від старих)
+    sheet = getSheetByGidOrName(doc, 1217591980, "Практикум");
+  } else if (sheetName === "Практикум") {
+    // СТАРИЙ ПРАКТИКУМ (Ми відновили його GID, щоб нічого не зламалося)
+    sheet = getSheetByGidOrName(doc, 486433203, sheetName);
   } else {
     sheet = doc.getSheetByName(sheetName);
   }
