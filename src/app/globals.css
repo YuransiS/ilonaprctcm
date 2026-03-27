@@ -23,84 +23,71 @@
   --color-warm-gray: var(--color-warm-gray);
   --color-soft-white: var(--color-soft-white);
 
-  --font-sans: var(--font-inter);
-  --font-serif: var(--font-playfair);
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  background: var(--color-cream);
+html,
+body {
+  background-color: var(--color-cream);
   color: var(--color-charcoal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
-  scroll-behavior: smooth;
-}
 
-body {
-  background: var(--color-cream);
-  color: var(--color-charcoal);
-  font-family: var(--font-sans), system-ui, sans-serif;
-  overflow-x: hidden;
-  position: relative;
-  width: 100%;
+  /* ИСПОЛЬЗУЕМ CLIP вместо HIDDEN */
+  overflow-x: clip;
+  /* УБРАЛИ scroll-behavior: smooth; ради Lenis/GSAP */
 }
 
 ::selection {
-  background: var(--color-blush);
+  background-color: var(--color-blush);
   color: var(--color-charcoal);
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
+/* Компоненты лучше писать через @layer components */
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
 
-/* Base Layout Classes */
-.container-custom {
-  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-}
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-32;
+  }
 
-.section-padding {
-  @apply py-16 md:py-24 lg:py-32;
-}
+  .heading-serif {
+    @apply font-serif font-normal;
+  }
 
-.heading-serif {
-  @apply font-serif font-normal;
-}
+  .text-reveal-mask {
+    /* Чтобы анимации текста не вылезали за свои рамки */
+    @apply overflow-hidden block;
+  }
 
-.text-reveal-mask {
-  overflow: hidden;
-}
+  .card-premium {
+    @apply bg-white rounded-[2rem] p-8 md:p-12 border border-[#C4956A]/10 shadow-sm transition-shadow duration-300 hover:shadow-xl;
+  }
 
-/* Components */
-.card-premium {
-  @apply bg-white rounded-[2rem] p-8 md:p-12 border border-gold/10 shadow-sm transition-shadow duration-300 hover:shadow-xl;
-}
-
-.btn-primary {
-  @apply relative inline-block px-10 py-6 md:px-16 md:py-7 rounded-full text-sm md:text-lg tracking-[0.2em] uppercase font-bold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-2xl;
-  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
-  box-shadow: 0 20px 50px -15px rgba(196, 149, 106, 0.6);
+  .btn-primary {
+    @apply relative inline-block px-10 py-6 md:px-16 md:py-7 rounded-full text-sm md:text-lg tracking-[0.2em] uppercase font-bold text-white transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] shadow-2xl;
+    background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-dark) 100%);
+    box-shadow: 0 20px 50px -15px rgba(196, 149, 106, 0.6);
+  }
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--color-cream);
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--color-blush);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-gold);
 }
